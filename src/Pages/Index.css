@@ -1,0 +1,60 @@
+/* General styles for the index container */
+.index-container {
+  padding: 20px;
+  text-align: center; /* Center align text */
+  background-color: rgb(30, 30, 31);/* Light gray background */
+  min-height: 100vh; /* Full height */
+}
+
+/* Styles for the header section */
+.index-header {
+  margin-bottom: 40px; /* Space below the header */
+}
+
+.index-header h1 {
+  font-size: 2.5rem; /* Large font size for the title */
+  color: #7a4545d5; /* Dark gray color for the text */
+}
+
+.index-header p {
+  font-size: 1.2rem; /* Medium font size for the subtitle */
+  color: #666; /* Lighter gray for the subtitle */
+}
+
+/* Main content styles */
+.index-content {
+  margin: 20px 0; /* Space above and below the main content */
+}
+
+.index-content h2 {
+  font-size: 2rem; /* Font size for the section title */
+  color: #333; /* Dark gray color */
+  margin-bottom: 20px; /* Space below the title */
+}
+
+.index-content ul {
+  list-style-type: none; /* Remove bullet points */
+  padding: 0; /* Remove padding */
+}
+
+.index-content li {
+  margin: 10px 0; /* Space between list items */
+}
+
+.index-content a {
+  text-decoration: none; /* Remove underline from links */
+  color: #007bff; /* Bootstrap primary color */
+  font-weight: bold; /* Bold text for links */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.index-content a:hover {
+  color: #0056b3; /* Darker blue on hover */
+}
+
+/* Footer styles */
+.index-footer {
+  margin-top: 40px; /* Space above the footer */
+  font-size: 14px; /* Smaller font size for the footer */
+  color: #555; /* Medium gray color */
+}

@@ -1,0 +1,146 @@
+/* Container */
+.container {
+    margin-top: 50px;
+    padding: 20px;
+    
+  }
+  
+  /* Row */
+  .row {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+  
+  /* Margin Top */
+  .mt-5 {
+    margin-top: 5rem !important;
+  }
+  
+  /* Form Control (Input and Select) */
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Button */
+  .btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #b80e0e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5px;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Horizontal Rule */
+  hr {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Footer */
+  footer {
+    margin: 1rem 0;
+    color: white;
+    background-color: #343a40;
+    text-align: left;
+    padding: 10px 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .form-control {
+      width: 100%;
+      padding: 12px 10px;
+    }
+  }
+
+  .form-control::placeholder {
+    color: #aaa;
+    transition: color 0.3s ease;
+  }
+  
+  .form-control:focus::placeholder {
+    color: transparent;         /* Hides the placeholder on focus */
+  }
+  
+
+  /* Wrapper to add space around form controls */
+.form-group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+/* Style for the input field */
+.form-control {
+  padding: 12px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: #f9f9f9;
+  width: 100%;
+  max-width: 300px;
+}
+
+.form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+  outline: none;
+}
+
+/* Style for the select dropdown */
+select.form-control {
+  appearance: none;
+  padding: 12px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: #f9f9f9;
+  width: 100%;
+  max-width: 200px;
+}
+
+select.form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+  outline: none;
+}
+
+/* Style for the search button */
+#search-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#search-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+#search-button:active {
+  background-color: #004494;
+  transform: translateY(0); /* Reset lift on click */
+}

@@ -1,0 +1,147 @@
+/* Global Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #eeeeee;
+}
+
+/* Header Section */
+#primary-header {
+  background-size: cover;
+  background-position: center;
+  background-color: grey;
+  padding: 20px 0;
+}
+
+/* Navbar Styles */
+.navbar {
+  padding: 0 30px;
+}
+
+/* Logo Styles */
+.navbar-brand img {
+  height: 101.5px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.navbar-brand img:hover {
+  transform: scale(1.1);
+}
+
+/* Navbar Toggle Button */
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.navbar-toggler-icon {
+  background-color: #fff;
+}
+
+/* Navbar Items */
+.navbar-nav .nav-item {
+  margin-right: 0.5px;
+}
+
+/* Navbar Links */
+.navbar-nav .nav-link {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 10px 15px;
+  transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+  color: #f39c12; /* Gold color on hover */
+  padding-left: 20px; /* Indent effect on hover */
+}
+
+/* Navbar Collapse */
+.collapse.navbar-collapse {
+  justify-content: flex-end;
+}
+
+/* Navbar Collapse for Small Screens */
+@media (max-width: 992px) {
+  .navbar-nav {
+    text-align: center;
+  }
+
+  .navbar-nav .nav-item {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+
+/* Section Padding */
+section {
+  padding: 0.5px;
+}
+
+.m-2 {
+  margin-top: 10px;
+}
+
+/* Billboard Section - Background Image and Text Styles */
+#billboard {
+  background-image: url('./images/billboard.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+  padding: 100px 0;
+}
+
+#billboard h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+#billboard h6 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+#billboard a {
+  font-size: 1.2rem;
+  font-weight: 500;
+  background-color: #28a745;
+  color: #fff;
+  padding: 10px 30px;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#billboard a:hover {
+  background-color: #218838;
+  transform: translateY(-5px);
+}
+
+/* About Section - Content Padding */
+#about-us {
+  background-color: #f8f9fa;
+}
+
+#about-us h3 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+}
+
+#about-us p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+#about-us .text-primary {
+  color: #007bff !important;
+}
+
