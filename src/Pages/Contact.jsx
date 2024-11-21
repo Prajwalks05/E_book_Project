@@ -1,11 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './Contact.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Contact = () => {
   return (
-    <div className="container">
+    <div className="contact-container">
       <div className="row justify-content-center align-items-center">
         <div className="col-md-6">
           <div className="rectangle">

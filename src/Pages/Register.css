@@ -1,110 +1,110 @@
-/* Basic Styling for the Container */
+/* Register.css */
+
+/* General Styling */
+body {
+  background-color: #000; /* Black background */
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container Styling */
 .register-container {
-    display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    justify-content: flex-start; /* Align items to the top */
-    align-items: center; /* Center form horizontally */
-    height: 100vh;
-    background-color: #f4f7fc; /* Light background color */
-    font-family: 'Arial', sans-serif;
-    padding: 0 20px; /* Add padding to the left and right */
+  max-width: 400px;
+  margin: 200px auto; /* Centered vertically and horizontally */
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent card background */
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 255, 0, 0.3); /* Green glow for consistency */
+  text-align: center;
+}
+
+.register-container h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #56ccf2; /* Light blue accent */
+  margin-bottom: 20px;
+}
+
+/* Form Styling */
+.register-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #56ccf2; /* Light blue label */
+  margin-bottom: 5px;
+  display: block;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05); /* Slightly transparent input background */
+  color: #fff;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  border-color: #56ccf2;
+  box-shadow: 0 0 5px #56ccf2;
+}
+
+/* Button Styling */
+.register-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(90deg, #00ff00, #56ccf2); /* Green to blue gradient */
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 255, 0, 0.3);
+}
+
+.register-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(86, 204, 242, 0.5); /* Blue glow */
+}
+
+.register-button:active {
+  transform: scale(0.95);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .register-container {
+    padding: 20px;
   }
-  
-  /* Styling for the <h2> heading */
+
   .register-container h2 {
-    font-size: 28px; /* Larger font size for the heading */
-    color: #333;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    margin-top: 40px; /* Space from the top of the container */
-    margin-bottom: 20px; /* Space below the heading */
-    text-align: center;
+    font-size: 1.8rem;
   }
-  
-  /* Form Styling */
-  .register-form {
-    background-color: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  /* Hover effect on the form */
-  .register-form:hover {
-    transform: scale(1.02);
-  }
-  
-  /* Input Field Styling */
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
+
   .form-group label {
-    display: block;
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 5px;
+    font-size: 0.9rem;
   }
-  
+
   .form-group input {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
-    outline: none;
-    box-sizing: border-box;
-    transition: border 0.3s ease;
+    font-size: 0.9rem;
   }
-  
-  .form-group input:focus {
-    border-color: #5b9bd5; /* Blue border on focus */
-  }
-  
-  .form-group input::placeholder {
-    color: #bbb;
-  }
-  
-  /* Submit Button Styling */
+
   .register-button {
-    width: 100%;
-    padding: 12px;
-    background-color: #5b9bd5; /* Blue color */
-    border: none;
-    color: white;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-size: 0.9rem;
   }
-  
-  .register-button:hover {
-    background-color: #4682b4; /* Darker blue on hover */
-  }
-  
-  .register-button:active {
-    background-color: #3a6992; /* Even darker blue on click */
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 480px) {
-    .register-form {
-      padding: 20px;
-    }
-  
-    .register-container h2 {
-      font-size: 20px;
-    }
-  
-    .form-group input {
-      font-size: 14px;
-    }
-  
-    .register-button {
-      font-size: 14px;
-    }
-  }
-  
+}

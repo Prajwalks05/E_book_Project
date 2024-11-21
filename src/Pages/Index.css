@@ -1,60 +1,131 @@
-/* General styles for the index container */
-.index-container {
-  padding: 20px;
-  text-align: center; /* Center align text */
-  background-color: rgb(30, 30, 31);/* Light gray background */
-  min-height: 100vh; /* Full height */
+/* Index.css */
+
+/* General styles */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #000; /* Black background */
+  color: #fff; /* White text for readability */
 }
 
-/* Styles for the header section */
-.index-header {
-  margin-bottom: 40px; /* Space below the header */
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-.index-header h1 {
-  font-size: 2.5rem; /* Large font size for the title */
-  color: #7a4545d5; /* Dark gray color for the text */
+/* Billboard section */
+#billboard {
+  position: relative;
 }
 
-.index-header p {
-  font-size: 1.2rem; /* Medium font size for the subtitle */
-  color: #666; /* Lighter gray for the subtitle */
+#billboard .row {
+  min-height: 80vh;
 }
 
-/* Main content styles */
-.index-content {
-  margin: 20px 0; /* Space above and below the main content */
+#billboard h6 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
 }
 
-.index-content h2 {
-  font-size: 2rem; /* Font size for the section title */
-  color: #333; /* Dark gray color */
-  margin-bottom: 20px; /* Space below the title */
+#billboard h2 {
+  font-size: 3rem;
+  line-height: 1.2;
 }
 
-.index-content ul {
-  list-style-type: none; /* Remove bullet points */
-  padding: 0; /* Remove padding */
+#billboard a {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #000;
+  background: linear-gradient(90deg, #28a745 0%, #56ccf2 100%);
+  border-radius: 25px;
+  transition: all 0.3s ease;
 }
 
-.index-content li {
-  margin: 10px 0; /* Space between list items */
+#billboard a:hover {
+  background: #218838;
+  color: #fff;
 }
 
-.index-content a {
-  text-decoration: none; /* Remove underline from links */
-  color: #007bff; /* Bootstrap primary color */
-  font-weight: bold; /* Bold text for links */
-  transition: color 0.3s ease; /* Smooth color transition */
+/* About Us section */
+#about-us h6 {
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
-.index-content a:hover {
-  color: #0056b3; /* Darker blue on hover */
+#about-us h3 {
+  color: #17a2b8;
+  font-size: 2.5rem;
 }
 
-/* Footer styles */
-.index-footer {
-  margin-top: 40px; /* Space above the footer */
-  font-size: 14px; /* Smaller font size for the footer */
-  color: #555; /* Medium gray color */
+#about-us p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+#about-us p.fw-semibold {
+  font-size: 1.2rem;
+  margin-top: 15px;
+}
+
+/* Features section */
+.card {
+  background: #1a1a1a;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card-img-top {
+  border-bottom: 4px solid #17a2b8;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #17a2b8;
+  margin-top: 10px;
+}
+
+/* Footer */
+footer {
+  background-color: #111;
+  padding: 20px 0;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+footer p:hover {
+  color: #fff;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  #billboard .row {
+    flex-direction: column;
+  }
+
+  #billboard h2 {
+    font-size: 2rem;
+  }
+
+  #about-us h3 {
+    font-size: 2rem;
+  }
+
+  .card {
+    margin-bottom: 20px;
+  }
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { createClient } from '@supabase/supabase-js';
 
 import { Link } from 'react-router-dom';
 import Header from '../Components/Header';
@@ -6,7 +7,7 @@ import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 import './Index.css';
 
-// Assuming CSS file is inside 'styles'
+
 
 const Index = () => {
   return (
@@ -59,7 +60,7 @@ const Index = () => {
       <section>
         <div className="m-5 row justify-content-center text-center">
           <div className="card border-0 col-lg-3">
-            <img className="card-img-top" src="./images/feature3.avif" style={{ width: '300px', height: '300px' }} alt="Card image" />
+            <img className="card-img-top" src="/images/feature3.avif" style={{ width: '300px', height: '300px' }} alt="Card image" />
             <div className="card-body">
               <h4 className="card-title">Instant Download</h4>
             </div>

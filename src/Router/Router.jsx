@@ -14,6 +14,7 @@ import Contact from "../Pages/Contact.jsx";
 import Login from "../Pages/Login.jsx";
 import Search from "../Pages/Search.jsx";
 import Register from "../Pages/Register.jsx";
+import BookViewer from "../Pages/Bookviewer.jsx";
 
 
 export default function Router(){
@@ -28,7 +29,10 @@ export default function Router(){
                     <Route path="/Login" element={<Login/>}/>
                     <Route path="/Search" element={<Search/>}/>
                     <Route path="/Register" element={<Register/>}/>
+                    <Route path="/viewbook" element={<BookViewer/>} />
                     <Route path="/" element={<PrivateRoute><Index /></PrivateRoute>} />
+                    
+
                 </Routes>
             <Footer/>
         </BrowserRouter>

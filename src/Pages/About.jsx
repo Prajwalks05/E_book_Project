@@ -1,6 +1,5 @@
-import React from 'react'
-
-import { Link } from 'react-router-dom';
+import React from 'react';
+import './About.css';
 
 const About = () => {
   return (
@@ -21,7 +20,7 @@ const About = () => {
             <p>
               <h2>BookByte: Revolutionizing Learning with eBooks</h2>
               BookByte is a transformative platform that makes learning more accessible and engaging 
-              for students through the power of eBooks.BookByte offers a comprehensive learning 
+              for students through the power of eBooks. BookByte offers a comprehensive learning 
               toolkit designed to enhance your educational journey. Whether you're gearing up for exams, 
               navigating assignments, or exploring additional study materials, BookByte is your trusted partner for academic excellence, proudly endorsed by BMSCE.
             </p>
@@ -38,6 +37,5 @@ const About = () => {
     </section>
   );
 };
-
 
 export default About;

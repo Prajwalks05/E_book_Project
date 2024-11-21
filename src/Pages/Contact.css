@@ -1,40 +1,45 @@
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    width: 100%;
-  }
-  
-  .rectangle {
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .title {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 15px;
-  }
-  
-  .button:hover {
-    background-color: #0056b3;
-  }
-  
-  footer {
-    margin: 1rem 0;
-    color: white;
-    background-color: #343a40;
-  }
-  
+/* Scoped styles for Contact.jsx */
+.contact-container {
+  margin-top: 100px; /* Ensures it's below the header */
+  padding: 40px;
+  background-color: #121212; /* Dark theme background */
+  border-radius: 8px;
+  color: #ffffff;
+}
+
+.contact-container .rectangle {
+  background-color: #1f1f1f;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.contact-container .title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #4caf50;
+  margin-bottom: 20px;
+}
+
+.contact-container p {
+  color: #bfbfbf;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.contact-container .button {
+  display: inline-block;
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+}
+
+.contact-container .button:hover {
+  background-color: #388e3c;
+}

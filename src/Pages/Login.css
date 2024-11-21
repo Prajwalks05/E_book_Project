@@ -1,94 +1,125 @@
 /* Login.css */
 
-
-.login-container {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 380px;
-  padding: 40px;
-  text-align: center;
+/* Container styling */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #000; /* Black background */
 }
 
+/* Login container styling */
+.login-container {
+  background-color: #1a1a1a; /* Matches card style from index page */
+  padding: 40px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  color: #fff; /* White text for readability */
+}
+
+.login-container h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #17a2b8; /* Accent color */
+}
+
+/* Form styles */
 .login-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  width: 100%;
 }
 
 .form-group {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  margin-bottom: 15px;
+  text-align: left;
 }
 
-label {
-  font-size: 15px;
-  color: #555;
-  margin-bottom: 8px;
-  font-weight: 600;
+.form-group label {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 5px;
+  color: #aaa;
 }
 
-input {
+.form-group input {
   width: 100%;
-  padding: 12px;
-  font-size: 16px;
-  border: 2px solid #ddd;
-  border-radius: 6px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #333;
+  border-radius: 5px;
+  background-color: #222;
+  color: #fff;
+}
+
+.form-group input:focus {
+  border-color: #17a2b8; /* Matches accent color */
   outline: none;
-  transition: border 0.3s ease-in-out;
 }
 
-input:focus {
-  border-color: #007bff;
-}
-
-button {
-  background-color: #007bff;
-  color: white;
-  padding: 14px;
+/* Buttons */
+.login-button {
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 1rem;
+  color: #000;
+  background: rgb(46, 182, 231);
   border: none;
-  border-radius: 6px;
-  font-size: 16px;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-weight: bold;
+  transition: all 0.3s ease;
 }
 
-button:hover {
-  background-color: #0056b3;
+.login-button:hover {
+  background: green;
+  color: #fff;
 }
 
 .register-link {
-  font-size: 14px;
-  margin-top: 20px;
-  color: #777;
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #aaa;
 }
 
-.register-link .register-button {
-  color: #007bff;
+.register-link {
+  color: #17a2b8;
   cursor: pointer;
   font-weight: bold;
 }
 
-.register-link .register-button:hover {
-  text-decoration: underline;
+
+.register-button {
+  color: #fff;
+  background-color: #007bff;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
 }
 
-@media (max-width: 480px) {
+
+.register-button:hover {
+  background-color: #0056b3; 
+  text-decoration: underline; 
+}
+
+
+/* Responsive design */
+@media (max-width: 768px) {
   .login-container {
-    padding: 25px;
+    padding: 20px;
   }
 
-  h2 {
-    font-size: 22px;
+  .login-container h2 {
+    font-size: 1.5rem;
   }
 
-  input {
-    font-size: 14px;
-  }
-
-  button {
-    font-size: 14px;
+  .login-button {
+    font-size: 0.9rem;
   }
 }

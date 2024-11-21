@@ -13,7 +13,7 @@ const Header = () => {
         <div className="container-fluid">
           <Link className="navbar-brand" to="#">
             <img
-              src="/images/images/logo.png"
+              src="/images/logo.png"
               height="600px"
               alt="Logo"
               className="d-inline-block align-text-top"
@@ -38,11 +38,6 @@ const Header = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/Login">
-                  Login
-                </Link>
-              </li>
-              <li className="nav-item">
                 <Link className="nav-link" to="/Search">
                   Search
                 </Link>
@@ -61,6 +56,16 @@ const Header = () => {
                 <Link className="nav-link" to="/About">
                   About
                 </Link>
+              </li>
+              <li className="nav-item">
+                <button className="nav-link" onClick={() => window.location.href = '/Login'}>
+                  Login
+                </button>
+              </li>
+              <li className="nav-item">
+                <button className="nav-link" onClick={() => window.location.href = '/Signout'}>
+                  Logout
+                </button>
               </li>
             </ul>
           </div>
