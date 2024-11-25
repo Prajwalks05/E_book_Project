@@ -7,20 +7,44 @@ import './Login.css';
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
+      // Clear previous messages
+      setErrorMessage('');
+      setSuccessMessage('');
+
+      // Attempt to log in with provided credentials
       await signInWithEmailAndPassword(auth, email, password);
-      navigate('/');  
+      
+      // Show success message
+      setSuccessMessage('Successfully logged in!');
+      
+      // Redirect to home page after 2 seconds
+      setTimeout(() => {
+        setSuccessMessage('');
+        navigate('/');
+      }, 2000);
     } catch (error) {
-      console.error("Error logging in:", error.message);
+      // If error occurs, show the error message
+      if (error.code === 'auth/invalid-email') {
+        setErrorMessage('Invalid email format.');
+      } else if (error.code === 'auth/user-not-found') {
+        setErrorMessage('No user found with this email.');
+      } else if (error.code === 'auth/wrong-password') {
+        setErrorMessage('Incorrect password.');
+      } else {
+        setErrorMessage('Error logging in. Please try again.');
+      }
     }
   };
 
   const handleRegister = () => {
-    navigate('/Register'); 
+    navigate('/Register');
   };
 
   return (
@@ -50,8 +74,10 @@ function Login() {
           </div>
           <button type="submit" className="login-button">Login</button>
         </form>
+        {errorMessage && <div className="error-message">{errorMessage}</div>}
+        {successMessage && <div className="success-message">{successMessage}</div>}
         <p className="register-link">
-          Don't have an account? <span onClick={handleRegister} className="register-button"> Sign Up</span>
+          Don't have an account? <span onClick={handleRegister} className="register-button">Sign Up</span>
         </p>
       </div>
     </div>

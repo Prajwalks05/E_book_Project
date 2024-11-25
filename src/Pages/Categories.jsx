@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Link } from 'react-router-dom'; // Import Link for navigation
-import 'swiper/swiper-bundle.min.css'; // Import Swiper CSS
-import SwiperCore, { Navigation, Pagination } from 'swiper';
+import React, { useEffect, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper-bundle.min.css"; // Import Swiper CSS
+import SwiperCore, { Navigation, Pagination } from "swiper";
 SwiperCore.use([Navigation, Pagination]);
 
-import './Categories.css';
+import "./Categories.css";
 
 const Categories = () => {
   const [groupedBooks, setGroupedBooks] = useState({}); // Store books grouped by tags
@@ -14,11 +13,11 @@ const Categories = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/ebooks'); // Fetch grouped books
+        const response = await fetch("http://localhost:3000/api/ebooks"); // Fetch grouped books
         const grouped = await response.json();
         setGroupedBooks(grouped);
       } catch (error) {
-        console.error('Error fetching grouped books:', error);
+        console.error("Error fetching grouped books:", error);
       } finally {
         setLoading(false);
       }
@@ -26,6 +25,14 @@ const Categories = () => {
 
     fetchBooks();
   }, []);
+
+  const openBookInNewTab = (url) => {
+    if (url) {
+      window.open(url, "_blank"); // Open the PDF in a new tab
+    } else {
+      alert("Book URL is not available!");
+    }
+  };
 
   if (loading) {
     return <p>Loading books...</p>; // Show a loading message while fetching data
@@ -48,9 +55,9 @@ const Categories = () => {
             >
               {books.map((book) => (
                 <SwiperSlide key={book.book_id}>
-                  <Link
-                    to={`/viewbook?url=${encodeURIComponent(book.url)}`}
-                    className="book-card" // Use Link for navigation
+                  <div
+                    className="book-card"
+                    onClick={() => openBookInNewTab(book.url)} // Call the function on click
                   >
                     {/* Book Image */}
                     <img
@@ -64,7 +71,7 @@ const Categories = () => {
                     <p className="book-description">
                       {book.description.slice(0, 100)}...
                     </p>
-                  </Link>
+                  </div>
                 </SwiperSlide>
               ))}
             </Swiper>
