@@ -59,25 +59,25 @@ const Index = () => {
 
       <section>
         <div className="m-5 row justify-content-center text-center">
-          <div className="card border-0 col-lg-3">
+          <div className="card border-0 col">
             <img className="card-img-top" src="/images/feature3.avif" style={{ width: '300px', height: '300px' }} alt="Card image" />
             <div className="card-body">
               <h4 className="card-title">Instant Download</h4>
             </div>
           </div>
-          <div className="card border-0 col-lg-3">
+          <div className="card border-0 col">
             <img className="card-img-top" src="./images/feature2.avif" style={{ width: '300px', height: '300px' }} alt="Card image" />
             <div className="card-body">
               <h4 className="card-title">User -Friendly</h4>
             </div>
           </div>
-          <div className="card border-0 col-lg-3">
+          <div className="card border-0 col">
             <img className="card-img-top" src="./images/feature1.jfif" style={{ width: '300px', height: '300px' }} alt="Card image" />
             <div className="card-body">
               <h4 className="card-title">Ad-Free Experience</h4>
             </div>
           </div>
-          <div className="card border-0 col-lg-3">
+          <div className="card border-0 col">
             <img className="card-img-top" src="./images/feature4.png" style={{ width: '300px', height: '300px' }} alt="Card image" />
             <div className="card-body">
               <h4 className="card-title">Responsive Design</h4>
