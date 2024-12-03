@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FiUser } from 'react-icons/fi';
 import { signOut } from 'firebase/auth';
 import { auth } from '../Firebase';
-import './Header.css';
+// import './Header.css';
 
 const Header = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -44,10 +44,10 @@ const Header = () => {
   return (
     <header id="header">
       <section className="m-2"></section>
-      <nav id="primary-header" className="navbar navbar-expand-lg py-3" style={{ backgroundImage: 'url(./images/Delicate.jpg)' }}>
+      <nav id="primary-header" className="navbar navbar-expand-lg py-3" style={{ backgroundImage: 'url(./images/Delicate.png)' }}>
         <div className="container-fluid">
           <Link className="navbar-brand" to="#">
-            <img src="/images/logo.png" height="600px" alt="Logo" className="d-inline-block align-text-top" />
+            <img src="/images/logo.png" height="60px" alt="Logo" className="d-inline-block align-text-top" />
           </Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
