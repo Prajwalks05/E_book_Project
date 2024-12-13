@@ -4,7 +4,7 @@ import "swiper/swiper-bundle.min.css"; // Import Swiper CSS
 import SwiperCore, { Navigation, Pagination } from "swiper";
 SwiperCore.use([Navigation, Pagination]);
 
-import "./Categories.css";
+// import "./Categories.css";
 
 const Categories = () => {
   const [groupedBooks, setGroupedBooks] = useState({}); // Store books grouped by tags
@@ -44,24 +44,25 @@ const Categories = () => {
         <p>No books available.</p>
       ) : (
         Object.entries(groupedBooks).map(([tag, books]) => (
-          <div key={tag} className="tag-section">
-            <h2>{tag}</h2>
+          <div key={tag} className=" p-5 section">
+            <h2 className="bold text-capitalize text-primary">{tag}</h2>
+            <div></div>
             <Swiper
               spaceBetween={10}
               slidesPerView={3}
               loop={true}
-              navigation
+              navigation={true}
               pagination={{ clickable: true }}
             >
               {books.map((book) => (
                 <SwiperSlide key={book.book_id}>
                   <div
-                    className="book-card"
+                    className="card"
                     onClick={() => openBookInNewTab(book.url)} // Call the function on click
                   >
                     {/* Book Image */}
                     <img
-                      src={book.img_url}
+                      src={book.img_url} style={{ width: '75%', height: '550px' }}
                       alt={book.book_title}
                       className="book-image"
                     />
@@ -76,6 +77,7 @@ const Categories = () => {
               ))}
             </Swiper>
           </div>
+
         ))
       )}
     </div>

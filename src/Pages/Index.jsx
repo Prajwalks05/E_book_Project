@@ -13,6 +13,13 @@ const Index = () => {
   return (
     <div>
       <Helmet>
+        <style>
+          {`
+            * {
+              font-size: 20px;
+            }
+          `}
+        </style>
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"

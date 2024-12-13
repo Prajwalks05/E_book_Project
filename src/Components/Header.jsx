@@ -4,6 +4,7 @@ import { FiUser } from 'react-icons/fi';
 import { signOut } from 'firebase/auth';
 import { auth } from '../Firebase';
 // import './Header.css';
+import { Helmet } from 'react-helmet';
 
 const Header = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -43,6 +44,19 @@ const Header = () => {
 
   return (
     <header id="header">
+      <Helmet>
+        <style>
+          {`
+            * {
+              font-size: 20px;
+            }
+          `}
+        </style>
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+        />
+      </Helmet>
       <section className="m-2"></section>
       <nav id="primary-header" className="navbar navbar-expand-lg py-3" style={{ backgroundImage: 'url(./images/Delicate.png)' }}>
         <div className="container-fluid">
