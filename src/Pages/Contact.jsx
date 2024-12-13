@@ -10,7 +10,7 @@ const Contact = () => {
         <style>
           {`
             * {
-              font-size: 20px;
+              font-size: 18px;
             }
           `}
         </style>
@@ -19,7 +19,7 @@ const Contact = () => {
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
         />
       </Helmet>
-      <div className="row justify-content-center align-items-center">
+      <div className=" card row justify-content-center align-items-center">
         <div className="col-md-6">
           <div className="rectangle">
             <h4 className="primary">Can't Find Your Favorite eBook?</h4>

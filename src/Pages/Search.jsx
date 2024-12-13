@@ -116,7 +116,7 @@ const Search = () => {
                     onClick={() => openBookInNewTab(result.url)} // Open the PDF in a new tab
                   >
                     <img
-                      src={result.img_url} style={{ width: '75%', height: 'fit' }}
+                      src={result.img_url} style={{ width: '75%', height: '350' }}
                       // Assuming img_url contains the book image
                       alt={result.book_title}
                     />

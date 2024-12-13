@@ -3,8 +3,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.min.css"; // Import Swiper CSS
 import SwiperCore, { Navigation, Pagination } from "swiper";
 SwiperCore.use([Navigation, Pagination]);
-
+import { Helmet } from "react-helmet";
 // import "./Categories.css";
+
 
 const Categories = () => {
   const [groupedBooks, setGroupedBooks] = useState({}); // Store books grouped by tags
@@ -40,6 +41,7 @@ const Categories = () => {
 
   return (
     <div className="categories">
+      <div></div>
       {Object.keys(groupedBooks).length === 0 ? (
         <p>No books available.</p>
       ) : (
@@ -62,7 +64,7 @@ const Categories = () => {
                   >
                     {/* Book Image */}
                     <img
-                      src={book.img_url} style={{ width: '75%', height: '550px' }}
+                      src={book.img_url} style={{ width: '75%', height: '350px' }}
                       alt={book.book_title}
                       className="book-image"
                     />
@@ -76,6 +78,19 @@ const Categories = () => {
                 </SwiperSlide>
               ))}
             </Swiper>
+            <Helmet>
+              <style>
+                {`
+            * {
+              font-size: 18px;
+            }
+          `}
+              </style>
+              <link
+                rel="stylesheet"
+                href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+              />
+            </Helmet>
           </div>
 
         ))
