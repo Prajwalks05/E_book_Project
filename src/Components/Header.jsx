@@ -50,6 +50,7 @@ const Header = () => {
             * {
               font-size: 20px;
             }
+              
           `}
         </style>
         <link
@@ -68,19 +69,29 @@ const Header = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav mb-2 mb-lg-0">
-              <li className="nav-item"><Link className="nav-link" to="/Index">Home</Link></li>
-              <li className="nav-item"><Link className="nav-link" to="/Search">Search</Link></li>
-              <li className="nav-item"><Link className="nav-link" to="/Categories">Categories</Link></li>
-              <li className="nav-item"><Link className="nav-link" to="/Contact">Contact</Link></li>
-              <li className="nav-item"><Link className="nav-link" to="/About">About</Link></li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/Index">Home</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/Search">Search</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/Categories">Categories</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/Contact">Contact</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/About">About</Link>
+              </li>
             </ul>
             <ul className="navbar-nav ms-auto">
               <li className="nav-item account-dropdown">
                 <button className="nav-link account-btn" onClick={toggleDropdown}>
-                  <FiUser size={20} />
+                  <FiUser size={30} />
                 </button>
                 {isDropdownOpen && (
-                  <div className="dropdown-menu show">
+                  <div className="dropdown-menu show dropdown-menu-end">
                     <div className="dropdown-item">
                       <input type="file" onChange={handleProfilePicChange} style={{ display: 'none' }} id="profilePicInput" />
                       <label htmlFor="profilePicInput" className="profile-pic-label">
@@ -94,6 +105,9 @@ const Header = () => {
                 )}
               </li>
             </ul>
+
+
+
           </div>
         </div>
       </nav>

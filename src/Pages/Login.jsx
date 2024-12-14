@@ -3,14 +3,13 @@ import { auth } from '../Firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
-
+import { Helmet } from 'react-helmet';
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   const navigate = useNavigate();
-
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
@@ -20,10 +19,10 @@ function Login() {
 
       // Attempt to log in with provided credentials
       await signInWithEmailAndPassword(auth, email, password);
-      
+
       // Show success message
       setSuccessMessage('Successfully logged in!');
-      
+
       // Redirect to home page after 2 seconds
       setTimeout(() => {
         setSuccessMessage('');
@@ -49,6 +48,19 @@ function Login() {
 
   return (
     <div className='container'>
+      <Helmet>
+        <style>
+          {`
+              * {
+                font-size: 20px;
+              }
+            `}
+        </style>
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+        />
+      </Helmet>
       <div className="login-container">
         <h2>Login</h2>
         <form onSubmit={handleLogin} className="login-form">
@@ -76,8 +88,8 @@ function Login() {
         </form>
         {errorMessage && <div className="error-message">{errorMessage}</div>}
         {successMessage && <div className="success-message">{successMessage}</div>}
-        <p className="register-link">
-          Don't have an account? <span onClick={handleRegister} className="register-button">Sign Up</span>
+        <p className="">
+          Don't have an account? <span onClick={handleRegister} className="register-link register-button">Sign Up</span>
         </p>
       </div>
     </div>

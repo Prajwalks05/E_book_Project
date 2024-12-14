@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react"; // Import Swiper components
 import "swiper/swiper-bundle.min.css"; // Import Swiper styles
 import { Helmet } from "react-helmet";
+
 const Search = () => {
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState("all");
@@ -36,36 +37,35 @@ const Search = () => {
   };
 
   return (
-
     <div className="search-page-container">
-      <div><Helmet>
-        <style>
-          {`
-            * {
-              font-size: 20px;
-            }
-          `}
-        </style>
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
-        />
-      </Helmet></div>
+      <div>
+        <Helmet>
+          <style>
+            {`
+              * {
+                font-size: 20px;
+              }
+            `}
+          </style>
+          <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+          />
+        </Helmet>
+      </div>
       <div className="card row">
-        <div className=" row justify-content-center mt-5 p-5">
-          <div className="col-md-4">
+        <div className="row justify-content-center mt-5 p-5">
+          <div className="col-12 col-md-8 col-lg-6">
             <input
               type="text"
-              style={{ width: '500px', height: '50px' }}
-              className="form-control lg"
-              placeholder="Enter Book Name"
+              className="form-control"
+              placeholder="Enter Book Details"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
             />
           </div>
-          <div className="col-md-5 ml-5">
-            <select style={{ width: '500px', height: '50px' }}
-
+          <div className="col-12 col-md-3 col-lg-2 mt-3 mt-md-0">
+            <select
               className="form-control"
               value={filter}
               onChange={(e) => setFilter(e.target.value)}
@@ -75,12 +75,15 @@ const Search = () => {
               <option value="year">Year</option>
             </select>
           </div>
-          <button
-            className=" col-md-2 btn btn-outline-success rounded-pill"
-            id="search-button"
-            onClick={handleSearch}>
-            Search
-          </button>
+          <div className="col-12 col-md-2 mt-3 mt-md-0">
+            <button
+              className="btn btn-outline-success rounded-pill w-100"
+              id="search-button"
+              onClick={handleSearch}
+            >
+              Search
+            </button>
+          </div>
         </div>
 
         <div className="search-results mt-4">
@@ -116,7 +119,8 @@ const Search = () => {
                     onClick={() => openBookInNewTab(result.url)} // Open the PDF in a new tab
                   >
                     <img
-                      src={result.img_url} style={{ width: '75%', height: '350' }}
+                      src={result.img_url}
+                      style={{ width: '100%', height: '350px', objectFit: 'cover' }}
                       // Assuming img_url contains the book image
                       alt={result.book_title}
                     />
@@ -125,9 +129,7 @@ const Search = () => {
                       <strong>Author:</strong> {result.author}
                     </p>
                     <p>
-                      {result.description
-                        ? result.description
-                        : "No description available"}
+                      {result.description ? result.description : "No description available"}
                     </p>
                   </div>
                 </SwiperSlide>
