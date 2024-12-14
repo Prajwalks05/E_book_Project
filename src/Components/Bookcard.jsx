@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-const Card = ({ title, content,img_url}) => {
+const Card = ({ title, content, img_url }) => {
   return (
     <Link><div className="card">
       <img src="$img_url" alt='Book Image'>{img_url}</img>

@@ -16,8 +16,8 @@ app.use(cors());
 app.use('/public', express.static(path.join(__dirname, 'pdfs')));
 
 // Your Supabase project URL and API key
-const supabaseUrl = 'https://zykyyuyznvxwbabrxotz.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp5a3l5dXl6bnZ4d2JhYnJ4b3R6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjk4NjM2NzYsImV4cCI6MjA0NTQzOTY3Nn0.qQx0cpGuKuE0t6wzdS1Az_30GOcrcSWc_LEUvdsfmQs';
+const supabaseUrl = 'https://kciobuxvkbtkkrhacbet.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtjaW9idXh2a2J0a2tyaGFjYmV0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzA5NTg4NTksImV4cCI6MjA0NjUzNDg1OX0.ymG_jwCcHWTGIR1K0Rz75vOWz9KUmrKwf3Rj9y4pJk4';
 
 // Create a Supabase client
 const supabase = createClient(supabaseUrl, supabaseKey);
