@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-
+import { Helmet } from 'react-helmet';
 import './PrivateRoute.css';
 
 const PrivateRoute = ({ children }) => {
@@ -32,6 +32,22 @@ const PrivateRoute = ({ children }) => {
       <>
         {showPopup && (
           <div className="popup">
+            <Helmet>
+              <style>
+                {`
+                  * {
+                    font-size: 18px;
+                  }
+                    .backimg
+                    {
+                    background-image: url("/public/images/login_bg.gif");
+                    background-repeat:no-repeat;
+                    background-size:cover;
+                  }
+      
+                `}
+              </style>
+            </Helmet>
             <div className="popup-content">
               <h2>Please log in to access this page</h2>
               <button onClick={handlePopupClose}>Close</button>
