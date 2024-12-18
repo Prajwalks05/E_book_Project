@@ -9,9 +9,11 @@
   padding: 0 20px; /* Padding for better alignment */
   z-index: 1000;
   width: 100%;
-  position: fixed;
+  position: fixed; /* Make header fixed at the top */
   top: 0;
+  left: 0;
   justify-content: space-between; /* Space between the logo and the nav items */
+  box-sizing: border-box; /* Ensure padding does not affect width */
 }
 
 /* Logo */
@@ -106,15 +108,26 @@
   min-width: 200px; /* Set minimum width */
   max-width: 250px; /* Ensure it doesn't extend too much */
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.7);
-  padding: 10px 0;
+  padding: 10px 0; /* Adjust padding */
   transition: opacity 0.3s ease, transform 0.3s ease;
-  transform: translateY(-10px);
+  transform: translateY(-10%);
   opacity: 0;
   pointer-events: none; /* Hide dropdown initially */
   position: absolute;
-  right: 0; /* Align dropdown to the right of the button */
+  right: 10px; /* Move dropdown slightly inward */
+  margin-right: 15px; /* Additional spacing from the edge */
   z-index: 9999; /* Ensure dropdown is above other content */
+  overflow: hidden;
 }
+
+
+@media (max-width: 768px) {
+  .account-dropdown .dropdown-menu {
+    right: 5px; /* Further adjust for smaller screens */
+  }
+}
+
+
 
 .account-dropdown .dropdown-menu.show {
   opacity: 1;
@@ -167,6 +180,7 @@
   justify-content: space-between; /* Ensure space between logo and nav items */
   align-items: center;
   width: 100%;
+  box-sizing: border-box; /* Prevent horizontal overflow */
 }
 
 /* Make sure the dropdown fits within the screen */
@@ -191,18 +205,6 @@
 }
 
 /* src/Components/Header.css */
-.login-logout-message {
-  background-color: #1db954;
-  color: white;
-  text-align: center;
-  padding: 10px;
-  position: absolute;
-  top: 70px; /* Adjust based on your layout */
-  width: 100%;
-  z-index: 100;
-  font-weight: bold;
-}
-
 .popup-message {
   position: fixed;
   top: 10px;
