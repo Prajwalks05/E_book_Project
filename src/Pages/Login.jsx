@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { auth } from '../Firebase';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { faGoogle } from '@fortawesome/free-brands-svg-icons';
+
+
 import { Helmet } from 'react-helmet';
+
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -43,27 +47,40 @@ function Login() {
     navigate('/Register');
   };
 
+  // Google Sign-In Handler
+  const handleGoogleLogin = async () => {
+    const provider = new GoogleAuthProvider();
+    try {
+      await signInWithPopup(auth, provider);
+      setSuccessMessage('Successfully logged in with Google!');
+      setTimeout(() => {
+        setSuccessMessage('');
+        navigate('/');
+      }, 2000);
+    } catch (error) {
+      setErrorMessage('Error logging in with Google. Please try again.');
+    }
+  };
+
   return (
     <div className="container-fluid vh-100">
-      <div className="row h-100">
-        <Helmet>
-          <style>
-            {`
+      <Helmet>
+        <style>
+          {`
             * {
               font-size: 18px;
             }
-              .backimg
-              {
+            .backimg {
               background-image: url("/public/images/login_bg.gif");
-              background-repeat:no-repeat;
-              background-size:cover;
+              background-repeat: no-repeat;
+              background-size: cover;
             }
-
           `}
-          </style>
-        </Helmet>
+        </style>
+      </Helmet>
+      <div className="row h-100">
         {/* Welcome Section */}
-        <div className=" backimg col-md-6 d-flex flex-column justify-content-center align-items-center text-center bg-primary text-white p-5">
+        <div className="backimg col-md-6 d-flex flex-column justify-content-center align-items-center text-center bg-primary text-white p-5">
           <h1 className="display-4 fw-bold">Welcome to E-Book</h1>
           <p className="fs-5">Discover the best books to read</p>
         </div>
@@ -108,16 +125,42 @@ function Login() {
                   </button>
                 </div>
               </div>
-              <button type="submit" className="btn btn-primary w-100 mt-3 btn btn-success btn-bg btn-slide hover-slide-right">
+              <button type="submit" className="btn btn-primary w-100 mt-3">
                 Login
               </button>
             </form>
             {errorMessage && <div className="alert alert-danger mt-3">{errorMessage}</div>}
             {successMessage && <div className="alert alert-success mt-3">{successMessage}</div>}
+
+            <button
+              className="btn d-flex align-items-center justify-content-center w-100 mt-3"
+              style={{
+                backgroundColor: '#000', // Black background
+                color: '#fff',           // White text
+                borderRadius: '20px',    // Rounded edges
+                border: '1px solid #d9d9d9', // Light gray border
+                height: '50px',          // Fixed height
+              }}
+              onClick={handleGoogleLogin}
+            >
+              <img
+                src="\images\google.png"
+                alt="Google Logo"
+                style={{
+                  width: '40px',
+                  height: '40px',
+                  marginRight: '10px',
+                }}
+              />
+              <span>Sign in with Google</span>
+            </button>
+
+
+
             <p className="mt-3 text-center">
               Don't have an account?{' '}
               <span
-                className="text-primary fw-bold "
+                className="text-primary fw-bold"
                 style={{ cursor: 'pointer' }}
                 onClick={handleRegister}
               >

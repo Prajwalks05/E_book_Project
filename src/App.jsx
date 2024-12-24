@@ -8,8 +8,8 @@ import { AuthProvider } from './Context/AuthContext';
 
 
 
-const App=() => {
-  return(
+const App = () => {
+  return (
     <>
       <AuthProvider>
         <Router />

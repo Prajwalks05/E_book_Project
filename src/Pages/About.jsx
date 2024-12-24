@@ -1,5 +1,4 @@
 import React from 'react';
-// import './About.css';
 import { Helmet } from 'react-helmet';
 const About = () => {
   return (

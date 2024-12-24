@@ -3,7 +3,6 @@ import React from 'react';
 import { auth } from '../Firebase';
 import { signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
-import './SignOut.css';
 
 function SignOut() {
   const navigate = useNavigate();

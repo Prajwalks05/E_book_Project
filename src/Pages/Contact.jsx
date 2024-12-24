@@ -1,6 +1,4 @@
 import React from 'react';
-// import './Contact.css';
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import { Helmet } from 'react-helmet';
 const Contact = () => {
   return (

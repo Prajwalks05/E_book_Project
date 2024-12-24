@@ -4,8 +4,6 @@ import "swiper/swiper-bundle.min.css"; // Import Swiper CSS
 import SwiperCore, { Navigation, Pagination } from "swiper";
 SwiperCore.use([Navigation, Pagination]);
 import { Helmet } from "react-helmet";
-// import "./Categories.css";
-
 
 const Categories = () => {
   const [groupedBooks, setGroupedBooks] = useState({}); // Store books grouped by tags
@@ -29,7 +27,8 @@ const Categories = () => {
 
   const openBookInNewTab = (url) => {
     if (url) {
-      window.open(url, "_blank"); // Open the PDF in a new tab
+      // Open the PDF in a new tab with hidden toolbar, print disabled, and allow interactions
+      window.open(`${url}#toolbar=0&print=false&scrollbar=0&zoo=0&view=fitV`, "_blank");
     } else {
       alert("Book URL is not available!");
     }
@@ -46,38 +45,9 @@ const Categories = () => {
         <p>No books available.</p>
       ) : (
         Object.entries(groupedBooks).map(([tag, books]) => (
-          <div key={tag} className=" p-5 section">
+          <div key={tag} className="p-5 section">
             <h2 className="bold text-capitalize text-primary">{tag}</h2>
             <div></div>
-            <Swiper
-              spaceBetween={10}
-              slidesPerView={3}
-              loop={true}
-              navigation={true}
-              pagination={{ clickable: true }}
-            >
-              {books.map((book) => (
-                <SwiperSlide key={book.book_id}>
-                  <div
-                    className="card"
-                    onClick={() => openBookInNewTab(book.url)} // Call the function on click
-                  >
-                    {/* Book Image */}
-                    <img
-                      src={book.img_url} style={{ width: '75%', height: '350px' }}
-                      alt={book.book_title}
-                      className="book-image"
-                    />
-                    {/* Book Details */}
-                    <h3 className="book-title">{book.book_title}</h3>
-                    <p className="book-author">{book.author}</p>
-                    <p className="book-description">
-                      {book.description.slice(0, 100)}...
-                    </p>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
             <Helmet>
               <style>
                 {`
@@ -91,8 +61,47 @@ const Categories = () => {
                 href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
               />
             </Helmet>
+            <Swiper
+              spaceBetween={10}
+              slidesPerView={1} // Adjust to 1 for mobile view
+              loop={true}
+              navigation={true}
+              pagination={{ clickable: true }}
+              breakpoints={{
+                640: {
+                  slidesPerView: 2, // Tablet view
+                  spaceBetween: 20,
+                },
+                1024: {
+                  slidesPerView: 3, // Desktop view
+                  spaceBetween: 30,
+                },
+              }}
+            >
+              {books.map((book) => (
+                <SwiperSlide key={book.book_id}>
+                  <div
+                    className="card"
+                    onClick={() => openBookInNewTab(book.url)} // Call the function on click
+                  >
+                    {/* Book Image */}
+                    <img
+                      src={book.img_url}
+                      style={{ width: "100%", height: "auto" }}
+                      alt={book.book_title}
+                      className="book-image"
+                    />
+                    {/* Book Details */}
+                    <h3 className="book-title">{book.book_title}</h3>
+                    <p className="book-author">{book.author}</p>
+                    <p className="book-description">
+                      {book.description.slice(0, 100)}...
+                    </p>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
-
         ))
       )}
     </div>
