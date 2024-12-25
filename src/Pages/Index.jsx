@@ -3,16 +3,15 @@ import { Helmet } from 'react-helmet';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom'
 
-const handleCategories = () => {
-  navigate('/Categories');
-};
+
+
 
 const Index = () => {
   // Default reviews data
   const [reviews, setReviews] = useState([
     { id: 1, name: 'Kumud Raj Ghimire', review: 'Amazing platform! The books are great.', rating: 5 },
-    { id: 2, name: 'Jane Smith', review: 'A lot of variety in genres.Very user-friendly!', rating: 4 },
-    { id: 3, name: 'Bob Brown', review: 'I love how easy it is to read books. Highly recommend!', rating: 3 },
+    { id: 2, name: 'Jane Smith', review: 'A lot of variety in genres. Very user-friendly!', rating: 4 },
+    { id: 3, name: 'Bob Brown', review: 'I love how easy it is to download books. Highly recommend!', rating: 3 },
   ]);
 
   return (
@@ -28,10 +27,6 @@ const Index = () => {
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
-        />
-        <link
-          rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
         />
       </Helmet>
 
@@ -116,7 +111,7 @@ const Index = () => {
                 <div className="card-body">
                   <h4 className="card-title">Comics</h4>
                   <p className="card-text">Explore a vast collection of graphic novels, manga, and superhero comics.</p>
-                  <Link to="/Categories" className="btn btn-primary" onClick={handleCategories}>Browse Comics</Link>
+                  <Link to="/Categories" className="btn btn-primary">Browse Comics</Link>
                 </div>
               </div>
             </div>
@@ -128,7 +123,7 @@ const Index = () => {
                 <div className="card-body">
                   <h4 className="card-title">Devotional</h4>
                   <p className="card-text">Dive into spiritual books, religious texts, and meditation guides.</p>
-                  <Link to="/Categories" className="btn btn-primary" onClick={handleCategories}>Browse Devotional</Link>
+                  <Link to="/Categories" className="btn btn-primary">Browse Devotional</Link>
                 </div>
               </div>
             </div>
@@ -140,7 +135,7 @@ const Index = () => {
                 <div className="card-body">
                   <h4 className="card-title">Education</h4>
                   <p className="card-text">Access a wide range of academic books, textbooks, and study materials.</p>
-                  <Link to="/Categories" className="btn btn-primary" onClick={handleCategories}>Browse Education</Link>
+                  <Link to="/Categories" className="btn btn-primary">Browse Education</Link>
                 </div>
               </div>
             </div>
@@ -165,7 +160,18 @@ const Index = () => {
           ))}
         </div>
       </div>
+
+
+
+
+
+
+
+      <script src="js/jquery-1.11.0.min.js"></script>
+      <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+      <script type="text/javascript" src="js/plugins.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+      <script type="text/javascript" src="js/script.js"></script>
       <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     </div>
   );

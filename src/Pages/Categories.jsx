@@ -47,14 +47,13 @@ const Categories = () => {
         Object.entries(groupedBooks).map(([tag, books]) => (
           <div key={tag} className="p-5 section">
             <h2 className="bold text-capitalize text-primary">{tag}</h2>
-            <div></div>
             <Helmet>
               <style>
                 {`
-            * {
-              font-size: 18px;
-            }
-          `}
+              * {
+                font-size: 18px;
+              }
+            `}
               </style>
               <link
                 rel="stylesheet"
@@ -62,12 +61,16 @@ const Categories = () => {
               />
             </Helmet>
             <Swiper
-              spaceBetween={10}
-              slidesPerView={1} // Adjust to 1 for mobile view
+              spaceBetween={10} // Space between slides
+              slidesPerView={1} // Default to 1 for mobile view
               loop={true}
               navigation={true}
               pagination={{ clickable: true }}
               breakpoints={{
+                350: {
+                  slidesPerView: 1, // Mobile view
+                  spaceBetween: 10,
+                },
                 640: {
                   slidesPerView: 2, // Tablet view
                   spaceBetween: 20,
@@ -81,20 +84,23 @@ const Categories = () => {
               {books.map((book) => (
                 <SwiperSlide key={book.book_id}>
                   <div
-                    className="card"
-                    onClick={() => openBookInNewTab(book.url)} // Call the function on click
+                    className="card bg-white rounded-lg shadow-md overflow-hidden cursor-pointer transition-transform hover:scale-105"
+                    onClick={() => openBookInNewTab(book.url)}
+                  // Call the function on click
                   >
                     {/* Book Image */}
                     <img
-                      src={book.img_url} style={{ width: '75%', height: '350px' }}
+                      src={book.img_url}
+                      style={{ height: "350px", objectFit: "cover" }}
                       alt={book.book_title}
-                      className="book-image"/>
+                      className="book-image"
+                    />
                     {/* Book Details */}
-                    <h3 className="book-title">{book.book_title}</h3>
-                    <p className="book-author">{book.author}</p>
-                    <p className="book-description">
-                      {book.description.slice(0, 100)}...
-                    </p>
+                    <div className="p-4">
+                      <h3 className="text-lg font-semibold">{book.book_title}</h3>
+                      <p className="text-sm">{book.author}</p>
+                      <p className="text-sm ">{book.description.slice(0, 100)}...</p>
+                    </div>
                   </div>
                 </SwiperSlide>
               ))}
