@@ -52,7 +52,7 @@ const Categories = () => {
               <style>
                 {`
             * {
-              font-size: 18px;
+              font-size: 14px;
             }
           `}
               </style>
@@ -81,13 +81,14 @@ const Categories = () => {
               {books.map((book) => (
                 <SwiperSlide key={book.book_id}>
                   <div
-                    className="card"
-                    onClick={() => openBookInNewTab(book.url)} // Call the function on click
+                    className="card h-100"
+                    onClick={() => openBookInNewTab(book.url)}
+                    style={{ width: "25rem" }} // Call the function on click
                   >
                     {/* Book Image */}
                     <img
                       src={book.img_url}
-                      style={{ width: "100%", height: "auto" }}
+                      style={{ height: "350px", objectFit: "cover" }}
                       alt={book.book_title}
                       className="book-image"
                     />

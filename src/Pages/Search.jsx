@@ -36,7 +36,6 @@ const Search = () => {
   };
 
   const Suggestions = () => {
-    // Array of predefined suggestions (phrases and keywords)
     const suggestionsArray = [
       "Find the latest eBooks on technology",
       "Bestselling novels",
@@ -53,17 +52,14 @@ const Search = () => {
       "Fantasy worlds to explore",
       "Thriller and mystery books",
       "Children's books",
-      "Search by ur coice of Title,Author,",
-      "Data Structures", "Database", "Object",
+      "Search by your choice of Title, Author, Year",
     ];
 
-    // State to store the current set of 5 suggestions
     const [currentSuggestions, setCurrentSuggestions] = useState(
       suggestionsArray.slice(0, 5)
     );
 
     useEffect(() => {
-      // Function to randomly pick 5 unique suggestions
       const updateSuggestions = () => {
         const randomSuggestions = [];
         while (randomSuggestions.length < 5) {
@@ -76,10 +72,7 @@ const Search = () => {
         setCurrentSuggestions(randomSuggestions);
       };
 
-      // Update the suggestions every 10 seconds
       const interval = setInterval(updateSuggestions, 10000);
-
-      // Cleanup interval on component unmount
       return () => clearInterval(interval);
     }, [suggestionsArray]);
 
@@ -125,6 +118,11 @@ const Search = () => {
               placeholder="Enter Book Details"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
+              onKeyDown={(e)=>{
+                if(e.key==="Enter"){
+                  handleSearch();
+                }
+              }}
             />
           </div>
           <div className="col-12 col-md-3 col-lg-2 mt-3 mt-md-0">
@@ -152,24 +150,53 @@ const Search = () => {
           <h5>Search Results:</h5>
           {results.length === 0 ? (
             <p>No results found.</p>
+          ) : results.length === 1 ? (
+            <div className="d-flex justify-content-center">
+              <div
+                className="card"
+                style={{
+                  width: "18rem",
+                }}
+                onClick={() => openBookInNewTab(results[0].url)}
+              >
+                <img
+                  src={results[0].img_url}
+                  style={{
+                    width: "100%",
+                    height: "350px",
+                    objectFit: "cover",
+                  }}
+                  alt={results[0].book_title}
+                />
+                <h6 className="card-title text-center mt-2">{results[0].book_title}</h6>
+                <p className="card-text text-center">
+                  <strong>Author:</strong> {results[0].author}
+                </p>
+                <p className="card-text text-center">
+                  {results[0].description
+                    ? results[0].description.slice(0, 100) + "..."
+                    : "No description available."}
+                </p>
+              </div>
+            </div>
           ) : (
             <Swiper
               spaceBetween={10}
-              slidesPerView={1} // Adjust number of visible slides based on viewport width
-              loop={true} // Enable looping of slides
-              navigation={true} // Enable navigation buttons
+              slidesPerView={1}
+              loop={true}
+              navigation={true}
               pagination={{ clickable: true }}
               breakpoints={{
                 640: {
-                  slidesPerView: 1, // Mobile view
+                  slidesPerView: 1,
                   spaceBetween: 10,
                 },
                 768: {
-                  slidesPerView: 2, // Tablet view
+                  slidesPerView: 2,
                   spaceBetween: 20,
                 },
                 1024: {
-                  slidesPerView: 3, // Desktop view
+                  slidesPerView: 3,
                   spaceBetween: 30,
                 },
               }}
@@ -178,7 +205,10 @@ const Search = () => {
                 <SwiperSlide key={index}>
                   <div
                     className="card"
-                    onClick={() => openBookInNewTab(result.url)} // Open the PDF in a new tab
+                    style={{
+                      width: "18rem",
+                    }}
+                    onClick={() => openBookInNewTab(result.url)}
                   >
                     <img
                       src={result.img_url}
@@ -195,8 +225,8 @@ const Search = () => {
                     </p>
                     <p>
                       {result.description
-                        ? result.description
-                        : "No description available"}
+                        ? result.description.slice(0, 100) + "..."
+                        : "No description available."}
                     </p>
                   </div>
                 </SwiperSlide>
