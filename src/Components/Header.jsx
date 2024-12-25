@@ -7,7 +7,7 @@ import { Helmet } from 'react-helmet';
 
 const Header = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [profilePic, setProfilePic] = useState("/images/default-profile.png");
+  const [profilePic, setProfilePic] = useState("/images/profile_pic.jpeg");
   const [popupMessage, setPopupMessage] = useState('');
   const navigate = useNavigate();
   const dropdownRef = useRef(null);

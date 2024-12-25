@@ -6,7 +6,6 @@ import Header from '../Components/Header'
 // import React from 'react';
 import { Helmet } from 'react-helmet';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './responsive.css';
 import 'react-helmet';
 
 
@@ -67,7 +66,7 @@ const Index = () => {
           <div className="card border-0 col-sm">
             <img className="card-img-top" src="/images/feature3.jpg" style={{ width: '300px', height: '300px' }} alt="Card image" />
             <div className="card-body">
-              <h4 className="card-title">Instant Download</h4>
+              <h4 className="card-title">Zero Downtime</h4>
             </div>
           </div>
           <div className="card border-0 col-sm">
