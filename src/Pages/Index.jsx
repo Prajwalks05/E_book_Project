@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+
+
+
 
 const Index = () => {
   // Default reviews data
@@ -108,7 +111,7 @@ const Index = () => {
                 <div className="card-body">
                   <h4 className="card-title">Comics</h4>
                   <p className="card-text">Explore a vast collection of graphic novels, manga, and superhero comics.</p>
-                  <Link to="/Categories.jsx" className="btn btn-primary">Browse Comics</Link>
+                  <Link to="/Categories" className="btn btn-primary">Browse Comics</Link>
                 </div>
               </div>
             </div>
@@ -120,7 +123,7 @@ const Index = () => {
                 <div className="card-body">
                   <h4 className="card-title">Devotional</h4>
                   <p className="card-text">Dive into spiritual books, religious texts, and meditation guides.</p>
-                  <Link to="/Categories.jsx" className="btn btn-primary">Browse Devotional</Link>
+                  <Link to="/Categories" className="btn btn-primary">Browse Devotional</Link>
                 </div>
               </div>
             </div>
@@ -132,7 +135,7 @@ const Index = () => {
                 <div className="card-body">
                   <h4 className="card-title">Education</h4>
                   <p className="card-text">Access a wide range of academic books, textbooks, and study materials.</p>
-                  <Link to="/Categories.jsx" className="btn btn-primary">Browse Education</Link>
+                  <Link to="/Categories" className="btn btn-primary">Browse Education</Link>
                 </div>
               </div>
             </div>
