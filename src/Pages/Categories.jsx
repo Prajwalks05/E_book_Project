@@ -86,11 +86,9 @@ const Categories = () => {
                   >
                     {/* Book Image */}
                     <img
-                      src={book.img_url}
-                      style={{ width: "100%", height: "auto" }}
+                      src={book.img_url} style={{ width: '75%', height: '350px' }}
                       alt={book.book_title}
-                      className="book-image"
-                    />
+                      className="book-image"/>
                     {/* Book Details */}
                     <h3 className="book-title">{book.book_title}</h3>
                     <p className="book-author">{book.author}</p>
