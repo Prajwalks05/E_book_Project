@@ -13,8 +13,9 @@ const Search = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:3000/api/search?query=${encodeURIComponent(query)}&filter=${filter}`
+        `https://e-book-server-rose.vercel.app/api/search?query=${encodeURIComponent(query)}&filter=${filter}`
       );
+
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
