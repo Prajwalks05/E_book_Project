@@ -9,7 +9,7 @@ const port = process.env.PORT || 3000; // Use the correct port for Vercel or fal
 
 // Configure CORS to allow the frontend to make requests
 const corsOptions = {
-  origin: 'https://e-book-frontend-kappa.vercel.app', // Replace with the correct frontend URL
+  origin: '*', // Replace with the correct frontend URL
   methods: ['GET', 'POST'], // Allow specific HTTP methods if needed
   allowedHeaders: ['Content-Type', 'Authorization'], // Allow headers as required
 };
