@@ -8,9 +8,11 @@ const port = process.env.PORT || 3000;
 
 // Configure CORS
 const corsOptions = {
-  origin: 'http://localhost:5173', // Replace with your frontend URL
+  origin: 'https://e-book-frontend-kappa.vercel.app', // Use the correct frontend URL
 };
-app.use(cors());
+
+app.use(cors(corsOptions));
+
 
 // Serve static PDF files
 app.use('/public', express.static(path.join(__dirname, 'pdfs')));
