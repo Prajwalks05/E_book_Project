@@ -13,7 +13,7 @@ const Search = () => {
 
     try {
       const response = await fetch(
-        `https://e-book-server-rose.vercel.app/api/search?query=${encodeURIComponent(query)}&filter=${filter}`
+        `https://e-book-server-rosy.vercel.app/api/search?query=${encodeURIComponent(query)}&filter=${filter}`
       );
 
       if (!response.ok) {
