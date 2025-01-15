@@ -6,11 +6,16 @@ const { createClient } = require('@supabase/supabase-js');
 const app = express();
 const port = process.env.PORT || 3000; // Use the correct port for Vercel or fallback to 3000
 
+
 // Configure CORS to allow the frontend to make requests
 const corsOptions = {
-  origin: 'https://e-book-frontend-kappa.vercel.app', // Use the correct frontend URL
+  origin: 'https://e-book-frontend-kappa.vercel.app', // Replace with the correct frontend URL
+  methods: ['GET', 'POST'], // Allow specific HTTP methods if needed
+  allowedHeaders: ['Content-Type', 'Authorization'], // Allow headers as required
 };
-app.use(cors(corsOptions));
+
+app.use(cors(corsOptions)); // Enable CORS with the configured options
+
 
 // Serve static PDF files
 app.use('/public', express.static(path.join(__dirname, 'pdfs')));
