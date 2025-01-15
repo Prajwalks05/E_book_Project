@@ -12,7 +12,7 @@ const Categories = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/ebooks"); // Fetch grouped books
+        const response = await fetch("https://e-book-server-rose.vercel.app/api/ebooks"); // Fetch grouped books
         const grouped = await response.json();
         setGroupedBooks(grouped);
       } catch (error) {
