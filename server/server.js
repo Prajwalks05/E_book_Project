@@ -23,24 +23,26 @@ const supabaseUrl = 'https://kciobuxvkbtkkrhacbet.supabase.co';
 const supabaseKey = 'YOUR_SUPABASE_SECRET_KEY'; // Replace with a secure env variable
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-// Middleware to capture and store IP address
+// Middleware to get client IP address
 app.use(async (req, res, next) => {
   try {
-    const clientIp = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
-    console.log(`Client IP: ${clientIp}`);
+    let ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress; // Get IP address
+    ip = ip.split(',')[0].trim(); // Handle multiple forwarded IPs
 
-    const { error } = await supabase
-      .from('visitor_logs') // Replace with your actual table name
-      .insert([{ ip_address: clientIp, visited_at: new Date() }]);
+    // Insert into Supabase
+    const { error } = await supabase.from('visitor_logs').insert([{ ip_address: ip }]);
 
     if (error) {
-      console.error('Error storing IP address:', error.message);
+      console.error('Error inserting IP:', error.message);
+    } else {
+      console.log(`Visitor IP logged: ${ip}`);
     }
-  } catch (err) {
-    console.error('Middleware error:', err.message);
+  } catch (error) {
+    console.error('Middleware error:', error.message);
   }
   next();
 });
+
 
 // Fetch e-books API
 app.get('/api/ebooks', async (req, res) => {
