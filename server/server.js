@@ -4,109 +4,93 @@ const path = require('path');
 const { createClient } = require('@supabase/supabase-js');
 
 const app = express();
-const port = process.env.PORT || 3000; // Use the correct port for Vercel or fallback to 3000
+const port = process.env.PORT || 3000;
 
-
-// Configure CORS to allow the frontend to make requests
+// Configure CORS
 const corsOptions = {
-  origin: '*', // Replace with the correct frontend URL
-  methods: ['GET', 'POST'], // Allow specific HTTP methods if needed
-  allowedHeaders: ['Content-Type', 'Authorization'], // Allow headers as required
+  origin: '*',
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
 };
 
-app.use(cors(corsOptions)); // Enable CORS with the configured options
-
+app.use(cors(corsOptions));
 
 // Serve static PDF files
 app.use('/public', express.static(path.join(__dirname, 'pdfs')));
 
-// Your Supabase project URL and API key
+// Supabase configuration
 const supabaseUrl = 'https://kciobuxvkbtkkrhacbet.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtjaW9idXh2a2J0a2tyaGFjYmV0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzA5NTg4NTksImV4cCI6MjA0NjUzNDg1OX0.ymG_jwCcHWTGIR1K0Rz75vOWz9KUmrKwf3Rj9y4pJk4';
-
-// Create a Supabase client
+const supabaseKey = 'YOUR_SUPABASE_SECRET_KEY'; // Replace with a secure env variable
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-/**
- * Function to fetch e-books from the 'e_book' table.
- */
-async function fetchEBooks() {
+// Middleware to capture and store IP address
+app.use(async (req, res, next) => {
   try {
-    const { data, error } = await supabase
-      .from('e_book')
-      .select('*');
+    const clientIp = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
+    console.log(`Client IP: ${clientIp}`);
+
+    const { error } = await supabase
+      .from('visitor_logs') // Replace with your actual table name
+      .insert([{ ip_address: clientIp, visited_at: new Date() }]);
 
     if (error) {
-      throw error;
+      console.error('Error storing IP address:', error.message);
     }
-
-    return data || [];
-  } catch (error) {
-    console.error('Error in fetchEBooks:', error.message);
-    throw error;
+  } catch (err) {
+    console.error('Middleware error:', err.message);
   }
-}
+  next();
+});
 
-// API endpoint to get e-books
+// Fetch e-books API
 app.get('/api/ebooks', async (req, res) => {
   try {
-    const { data, error } = await supabase
-      .from('e_book')
-      .select('*');
+    const { data, error } = await supabase.from('e_book').select('*');
 
-    if (error) {
-      throw error;
-    }
+    if (error) throw error;
 
     // Group books by tag
     const groupedBooks = data.reduce((acc, book) => {
-      const tag = book.tag || 'Uncategorized'; // Default to 'Uncategorized' if no tag
+      const tag = book.tag || 'Uncategorized';
       if (!acc[tag]) acc[tag] = [];
       acc[tag].push(book);
       return acc;
     }, {});
 
-    res.json(groupedBooks); // Send grouped books
+    res.json(groupedBooks);
   } catch (error) {
     console.error('Error in fetchEBooks:', error.message);
     res.status(500).json({ error: 'An error occurred while fetching e-books' });
   }
 });
 
-// Start the server
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
-
-// API endpoint to search e-books
+// Search e-books API
 app.get('/api/search', async (req, res) => {
   try {
-    const { query, filter } = req.query; // Get query and filter from request
-
-    // Base query
+    const { query, filter } = req.query;
     let searchQuery = supabase.from('e_book').select('*');
 
-    // Apply filtering based on the filter type
     if (filter === 'title') {
-      searchQuery = searchQuery.ilike('book_title', `%${query}%`); // Case-insensitive title search
+      searchQuery = searchQuery.ilike('book_title', `%${query}%`);
     } else if (filter === 'author') {
-      searchQuery = searchQuery.ilike('author', `%${query}%`); // Case-insensitive author search
+      searchQuery = searchQuery.ilike('author', `%${query}%`);
     } else if (filter === 'year') {
-      searchQuery = searchQuery.eq('year', query); // Exact match for year
+      searchQuery = searchQuery.eq('year', query);
     } else {
-      // Default: Search across all relevant fields (title and author)
       searchQuery = searchQuery.or(`book_title.ilike.%${query}%,author.ilike.%${query}%`);
     }
 
     const { data, error } = await searchQuery;
 
-    if (error) {
-      throw error;
-    }
-
-    res.json(data || []); // Send the search results
+    if (error) throw error;
+    res.json(data || []);
   } catch (error) {
     console.error('Error in search API:', error.message);
     res.status(500).json({ error: 'An error occurred while searching for e-books' });
   }
+});
+
+// Start the server
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
